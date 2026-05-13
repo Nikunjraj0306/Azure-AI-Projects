@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Smart Classroom Assistant</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    />
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    />
+</head>
+<body>
+
+    <!-- Background -->
+    <div class="background-blur"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            🎓 Smart Classroom Assistant
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Left Panel -->
+        <div class="left-panel glass-card">
+
+            <h2>Upload Notes</h2>
+
+            <div class="upload-box" id="dropArea">
+                <input
+                    type="file"
+                    id="fileInput"
+                    hidden
+                    accept=".pdf,.png,.jpg,.jpeg"
+                />
+
+                <p>📄 Drag & Drop File</p>
+                <span>or</span>
+
+                <button id="browseBtn">
+                    Browse File
+                </button>
+            </div>
+
+            <button id="extractBtn" class="primary-btn">
+                Extract Text
+            </button>
+
+            <hr>
+
+            <h2>Speech Tools</h2>
+
+            <button id="speechBtn" class="secondary-btn">
+                🎤 Speech to Text
+            </button>
+
+            <hr>
+
+            <h2>Language Options</h2>
+
+            <select id="languageSelect">
+
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="es">Spanish</option>
+                <option value="ja">Japanese</option>
+                <option value="ko">Korean</option>
+                <option value="zh-Hans">Chinese</option>
+
+            </select>
+
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+
+            <!-- Extracted Text -->
+            <div class="glass-card section-card">
+
+                <div class="section-header">
+                    <h2>📘 Extracted Text</h2>
+                </div>
+
+                <textarea
+                    id="extractedText"
+                    placeholder="Extracted text will appear here..."
+                ></textarea>
+
+            </div>
+
+            <!-- Actions -->
+            <div class="action-buttons">
+
+                <button id="summaryBtn" class="primary-btn">
+                    Summarize
+                </button>
+
+                <button id="simplifyBtn" class="secondary-btn">
+                    Simplify
+                </button>
+
+                <button id="translateBtn" class="primary-btn">
+                    Translate
+                </button>
+
+                <button id="ttsBtn" class="secondary-btn">
+                    🔊 Text to Speech
+                </button>
+
+            </div>
+
+            <!-- Result -->
+            <div class="glass-card section-card">
+
+                <div class="section-header">
+                    <h2>📑 Result</h2>
+                </div>
+
+                <textarea
+                    id="resultBox"
+                    placeholder="Results will appear here..."
+                ></textarea>
+
+                <audio
+                    id="audioPlayer"
+                    controls
+                    style="display:none;"
+                ></audio>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script
+        src="{{ url_for('static', filename='script.js') }}"
+    ></script>
+
+</body>
+</html>
